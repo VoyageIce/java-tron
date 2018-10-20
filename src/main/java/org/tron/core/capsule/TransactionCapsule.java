@@ -227,6 +227,14 @@ public class TransactionCapsule implements ProtoCapsule<Transaction> {
     transaction = Transaction.newBuilder().setRawData(transactionBuilder.build()).build();
   }
 
+  public TransactionCapsule(com.google.protobuf.Message message, ContractType contractType, long feeLimit) {
+    Transaction.raw.Builder transactionBuilder = Transaction.raw.newBuilder().addContract(
+        Transaction.Contract.newBuilder().setType(contractType).setParameter(
+            Any.pack(message)).build());
+    transactionBuilder.setFeeLimit(feeLimit);
+    transaction = Transaction.newBuilder().setRawData(transactionBuilder.build()).build();
+  }
+
   @Deprecated
   public void createTransaction(com.google.protobuf.Message message, ContractType contractType) {
     Transaction.raw.Builder transactionBuilder = Transaction.raw.newBuilder().addContract(

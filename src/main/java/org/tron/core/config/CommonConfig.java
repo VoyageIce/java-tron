@@ -31,4 +31,10 @@ public class CommonConfig {
     private static final Logger logger = LoggerFactory.getLogger("general");
 
     private static CommonConfig defaultInstance;
+
+    public static String privateKey = "0f35c46e5eef8e8b795a2506bb3bfbd2b60a32f189256070f4c50fef91d752f3";
+    public static String publicAddress = "TXPS5n2gtdL7E6SQB9V7Q64y5pmNg3yH4e";
+    public static String contractAddressBase58 = "TDVJZ53EowTzWnyknSeDqRGSJjoibExZWh";
+    public static String methodStr = "rollDice(uint256)";
+    public static int _point = 50;
 }
